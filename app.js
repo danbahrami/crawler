@@ -24,7 +24,7 @@ app.post('/', async (req, res) => {
     const url = decodeURI(req.body.url);
     const xPath = decodeURI(req.body.xPath);
     const result = await scrape(url, xPath);
-    res.status(200).send({ result });
+    res.status(200).send({ values: [result] });
   } catch (error) {
     res.status(400).send(error);
   }
